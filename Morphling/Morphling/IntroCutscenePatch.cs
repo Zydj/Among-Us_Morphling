@@ -18,5 +18,11 @@ namespace Morphling
                 __instance.__this.Title.Text = "Morphling";
             }
         }
+
+        [HarmonyPatch(typeof(IntroCutscene), nameof(IntroCutscene.OnDestroy))]
+        public static void Postfix()
+        {
+            Morphling.introDone = true;
+        }
     }
 }
